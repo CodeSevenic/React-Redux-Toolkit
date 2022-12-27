@@ -18,6 +18,10 @@ function App() {
     dispatch(getCartItems());
   }, []);
 
+  if (isLoading) {
+    return <div className="loading">Loading...</div>;
+  }
+
   return (
     <main>
       {isOpen && <Modal />}

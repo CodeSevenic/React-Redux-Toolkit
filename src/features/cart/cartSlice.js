@@ -46,18 +46,18 @@ const cartSlice = createSlice({
       state.amount = amount;
       state.total = total;
     },
-    extraReducers: {
-      [getCartItems.pending]: (state) => {
-        state.isLoading = true;
-      },
-      [getCartItems.fulfilled]: (state, action) => {
-        console.log(action);
-        state.isLoading = false;
-        state.cartItems = action.payload;
-      },
-      [getCartItems.rejected]: (state) => {
-        state.isLoading = false;
-      },
+  },
+  extraReducers: {
+    [getCartItems.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getCartItems.fulfilled]: (state, action) => {
+      console.log('Logging action: ', action);
+      state.isLoading = false;
+      state.cartItems = action.payload;
+    },
+    [getCartItems.rejected]: (state) => {
+      state.isLoading = false;
     },
   },
 });
